@@ -202,26 +202,121 @@ using namespace std;
 //	return 0;
 //}
 
-class Date
+//class Date
+//{
+//public:
+//	void Init(int year, int month, int day)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//private:
+//	// 为了区分成员变量，⼀般习惯上成员变量 
+//	// 会加⼀个特殊标识，如_ 或者 m开头 
+//	int _year; // year_ m_year
+//	int _month;
+//	int _day;
+//};
+//int main()
+//{
+//	Date d;
+//	d.Init(2024, 3, 31);
+//	int x = _year;
+//	return 0;
+//}
+//#include<iostream>
+//
+//class Date
+//{
+//public:
+//    // 全缺省构造函数
+//    Date(int year = 1, int month = 1, int day = 1)
+//    {
+//        _year = year;
+//        _month = month;
+//        _day = day;
+//    }
+//
+//    void Print()
+//    {
+//        std::cout << _year << "/" << _month << "/" << _day << std::endl;
+//    }
+//
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//};
+//
+//int main()
+//{
+//    Date d1; // 调用全缺省构造函数，使用默认值
+//    Date d2(2025, 1, 1); // 调用全缺省构造函数，使用传入的参数
+//
+//    // 注意：如果通过无参构造函数创建对象时，对象后面不用跟括号
+//    Date d3;
+//
+//    d1.Print();
+//    d2.Print();
+//    d3.Print();
+//    return 0;
+//}
+
+
+//class Date
+//{
+//public:
+//
+//
+//    void Print()
+//    {
+//        std::cout << _year << "/" << _month << "/" << _day << std::endl;
+//    }
+//
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//};
+//
+//int main()
+//{
+//    Date d1; // 调用全缺省构造函数，使用默认值
+//
+//    d1.Print();
+//
+//    return 0;
+//}
+typedef int STDataType;
+class Stack
 {
 public:
-	void Init(int year, int month, int day)
+	Stack(int n = 4)
 	{
-		_year = year;
-		_month = month;
-		_day = day;
+		_a = (STDataType*)malloc(sizeof(STDataType) * n);
+		if (nullptr == _a)
+		{
+			perror("malloc申请空间失败");
+			return;
+		}
+		_capacity = n;
+		_top = 0;
+	}
+	~Stack()
+	{
+		cout << "~Stack()" << endl;
+		free(_a);
+		_a = nullptr;
+		_top = _capacity = 0;
 	}
 private:
-	// 为了区分成员变量，⼀般习惯上成员变量 
-	// 会加⼀个特殊标识，如_ 或者 m开头 
-	int _year; // year_ m_year
-	int _month;
-	int _day;
+	STDataType* _a;
+	size_t _capacity;
+	size_t _top;
 };
 int main()
 {
-	Date d;
-	d.Init(2024, 3, 31);
-	int x = _year;
-	return 0;
+Stack st;
 }
+
