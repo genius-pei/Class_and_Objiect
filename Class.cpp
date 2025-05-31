@@ -202,3 +202,26 @@ using namespace std;
 //	return 0;
 //}
 
+class Date
+{
+public:
+	void Init(int year, int month, int day)
+	{
+		_year = year;
+		_month = month;
+		_day = day;
+	}
+private:
+	// 为了区分成员变量，⼀般习惯上成员变量 
+	// 会加⼀个特殊标识，如_ 或者 m开头 
+	int _year; // year_ m_year
+	int _month;
+	int _day;
+};
+int main()
+{
+	Date d;
+	d.Init(2024, 3, 31);
+	int x = _year;
+	return 0;
+}
