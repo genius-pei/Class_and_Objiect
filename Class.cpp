@@ -363,7 +363,7 @@ void func(Date d)
 		&& d1._month == d2._month
 		&& d1._day == d2._day;
 }
-
+	
 int main()
 {
 	//Date d1(2025,4,11);
