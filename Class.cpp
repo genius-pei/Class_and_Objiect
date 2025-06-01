@@ -1,6 +1,7 @@
 ﻿ #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<stdio.h>
+#include<stdbool.h>
 using namespace std;
 //
 //class Stack
@@ -288,35 +289,95 @@ using namespace std;
 //
 //    return 0;
 //}
-typedef int STDataType;
-class Stack
+//typedef int STDataType;
+//class Stack
+//{
+//public:
+//	Stack(int n = 4)
+//	{
+//		_a = (STDataType*)malloc(sizeof(STDataType) * n);
+//		if (nullptr == _a)
+//		{
+//			perror("malloc申请空间失败");
+//			return;
+//		}
+//		_capacity = n;
+//		_top = 0;
+//	}
+//	~Stack()
+//	{
+//		cout << "~Stack()" << endl;
+//		free(_a);
+//		_a = nullptr;
+//		_top = _capacity = 0;
+//	}
+//private:
+//	STDataType* _a;
+//	size_t _capacity;
+//	size_t _top;
+//};
+//int main()
+//{
+//Stack st;
+//}
+//
+
+class Date
 {
 public:
-	Stack(int n = 4)
+	Date(int year = 1, int month = 1,int day=1)
 	{
-		_a = (STDataType*)malloc(sizeof(STDataType) * n);
-		if (nullptr == _a)
-		{
-			perror("malloc申请空间失败");
-			return;
-		}
-		_capacity = n;
-		_top = 0;
+		cout << "Date(int year = 1, int month = 1,int day=1)" << endl;
+		_year = year;
+		_month = month;
+		_day = day;
 	}
-	~Stack()
+	Date(Date& d)
 	{
-		cout << "~Stack()" << endl;
-		free(_a);
-		_a = nullptr;
-		_top = _capacity = 0;
+		_year = d._year;
+		_month = d._month;
+		_day = d._day;
+		cout << _year << "/" << _month << "/" << _day << std::endl;
 	}
-private:
-	STDataType* _a;
-	size_t _capacity;
-	size_t _top;
+	
+	~Date()
+	{
+		cout << "~Date()" << endl;
+	}
+	void Dateprint()
+	{
+		cout << _year << "/" << _month << "/" << _day << std::endl;
+	}
+ /*private:*/
+	int _year;
+	int _month;
+	int _day;
+
 };
-int main()
+void func(Date d)
 {
-Stack st;
+
+}bool operator==(const Date& d1, const Date& d2)
+{
+	return d1._year == d2._year
+		&& d1._month == d2._month
+		&& d1._day == d2._day;
 }
 
+int main()
+{
+	//Date d1(2025,4,11);
+	///*func(d1);*/
+	//Date d2(d1);
+	////d1.Dateprint();
+	////d2.Dateprint();
+	Date d1(2024, 7, 5);
+	Date d2(2024, 7, 6);
+
+
+	
+	// 编译器会转换成 operator==(d1, d2); 
+	d1 == d2;
+	return 0;
+
+}
