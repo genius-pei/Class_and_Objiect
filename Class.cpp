@@ -2,6 +2,7 @@
 #include<iostream>
 #include<stdio.h>
 #include<stdbool.h>
+#include"Class.h"
 using namespace std;
 //
 //class Stack
@@ -322,62 +323,62 @@ using namespace std;
 //}
 //
 
-class Date
-{
-public:
-	Date(int year = 1, int month = 1,int day=1)
-	{
-		cout << "Date(int year = 1, int month = 1,int day=1)" << endl;
-		_year = year;
-		_month = month;
-		_day = day;
-	}
-	Date(Date& d)
-	{
-		_year = d._year;
-		_month = d._month;
-		_day = d._day;
-		cout << _year << "/" << _month << "/" << _day << std::endl;
-	}
-	
-	~Date()
-	{
-		cout << "~Date()" << endl;
-	}
-	void Dateprint()
-	{
-		cout << _year << "/" << _month << "/" << _day << std::endl;
-	}
- /*private:*/
-	int _year;
-	int _month;
-	int _day;
-
-};
-void func(Date d)
-{
-
-}bool operator==(const Date& d1, const Date& d2)
-{
-	return d1._year == d2._year
-		&& d1._month == d2._month
-		&& d1._day == d2._day;
-}
-	
-int main()
-{
-	//Date d1(2025,4,11);
-	///*func(d1);*/
-	//Date d2(d1);
-	////d1.Dateprint();
-	////d2.Dateprint();
-	Date d1(2024, 7, 5);
-	Date d2(2024, 7, 6);
-
-
-	
-	// 编译器会转换成 operator==(d1, d2); 
-	d1 == d2;
-	return 0;
-
-}
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1,int day=1)
+//	{
+//		cout << "Date(int year = 1, int month = 1,int day=1)" << endl;
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//	Date(Date& d)
+//	{
+//		_year = d._year;
+//		_month = d._month;
+//		_day = d._day;
+//		cout << _year << "/" << _month << "/" << _day << std::endl;
+//	}
+//	
+//	~Date()
+//	{
+//		cout << "~Date()" << endl;
+//	}
+//	void Dateprint()
+//	{
+//		cout << _year << "/" << _month << "/" << _day << std::endl;
+//	}
+// /*private:*/
+//	int _year;
+//	int _month;
+//	int _day;
+//
+//};
+//void func(Date d)
+//{
+//
+//}bool operator==(const Date& d1, const Date& d2)
+//{
+//	return d1._year == d2._year
+//		&& d1._month == d2._month
+//		&& d1._day == d2._day;
+//}
+//	 int main()
+//{
+//	//Date d1(2025,4,11);
+//	///*func(d1);*/
+//	//Date d2(d1);
+//	////d1.Dateprint();
+//	////d2.Dateprint();
+//	Date d1(2024, 7, 5);
+//	Date d2(2024, 7, 6);
+//
+//
+//	
+//	// 编译器会转换成 operator==(d1, d2); 
+//	d1 == d2;
+//	return 0;
+//
+//}
+void Date::Print()
