@@ -5,6 +5,8 @@
 using namespace std;
 class Date
 {
+	friend ostream& operator<<(ostream& out, const Date& d);
+	friend istream& operator>>(istream& in, Date& d);
 public:
 	int GetMonthDay(int year, int month)//返回月份的天数
 	{
@@ -18,8 +20,8 @@ public:
 			return monthdayarr[month];
 
 	}
-	void  Print();
-
+	void  Print()const;
+	bool CheckDate();//检查日期是否合法
 	Date(int year = 1, int month = 1, int day = 1);//构造函数
 	Date(const Date& d)
 	{
@@ -41,19 +43,13 @@ public:
 	bool operator<=(const Date& d);
 	bool  operator>(const Date& d);
 	bool  operator>=(const Date& d);
+	int operator-(const Date& d);//日期-日期
+	
 
 
 
-	Date& operator=(const Date& d)
-	{
-		if (this != &d)
-		{
-			_year = d._year;
-			_month = d._month;
-			_day = d._day;
-		}
-		return *this;
-	}
+	Date& operator=(const Date& d);
+	
 
 
 private:
