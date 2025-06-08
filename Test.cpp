@@ -28,10 +28,26 @@ void test03()
 }
 void test04()
 {
-	Date d1(2025, 4, 24);
+	Date d1(2025, 4, 32);
 	Date d2(2025, 4, 21);
 	cout << (d1 < d2) << endl;
 	cout << (d1 > d2) << endl;
+}
+void test05()
+{
+	Date d1(2100, 2, 29);
+	Date d2(2000, 2, 29);
+	cout << d1 << d2;
+	cin >> d1 >> d2;
+	cout << d1 << d2;
+}
+void test06()
+{
+	Date d1(2024, 7, 5);
+	d1.Print();
+	const Date d2(2024, 8, 5);
+	d2.Print();
+
 }
 
 int main()
@@ -39,6 +55,8 @@ int main()
 	//test01();
 	//test02();
 	//test03();
-	test04();
+	//test04();
+	//test05();
+	test06();
 	return 0;
 }
